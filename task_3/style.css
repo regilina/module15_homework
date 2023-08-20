@@ -1,0 +1,17 @@
+.btn {
+  background-color: powderblue;
+  border: none;
+}
+
+#message-input, .btn {
+  padding: 10px 10px;
+  border-radius: 10px;
+}
+
+#message-input {
+  border: solid 2px powderblue;
+}
+
+.headline {
+  color: powderblue;
+}
