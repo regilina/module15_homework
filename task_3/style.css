@@ -1,3 +1,6 @@
+.chat-container {
+  width: fit-content;
+}
 .btn {
   background-color: powderblue;
   border: none;
@@ -14,4 +17,20 @@
 
 .headline {
   color: powderblue;
+}
+
+.sent-message {
+  background-color: lightgreen;
+  text-align: right;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.response-message {
+  background-color: lightblue;
+  text-align: left;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
 }

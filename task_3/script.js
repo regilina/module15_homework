@@ -7,24 +7,26 @@ const locationButton = document.querySelector('.j-btn-location')
 
 let websocket
 
-function writeToScreen (message) {
+function writeToScreen (message, isSent = false) {
   const pre = document.createElement('p')
   pre.style.wordWrap = 'break-word'
   pre.innerHTML = message
+  if (isSent) {
+    pre.classList.add('sent-message')
+  } else {
+    pre.classList.add('response-message')
+  }
   output.appendChild(pre)
 }
 
 function openWebsocket () {
   websocket = new WebSocket(wsUrl)
-  websocket.onopen = function (evt) {
-    writeToScreen('CONNECTED')
-  }
   websocket.onclose = function (evt) {
     writeToScreen('DISCONNECTED')
   }
   websocket.onmessage = function (evt) {
     writeToScreen(
-      '<span style="color: blue;">RESPONSE: ' + evt.data + '</span>')
+      '<span style="color: blue;">' + evt.data + '</span>', true)
   }
   websocket.onerror = function (evt) {
     writeToScreen(
@@ -58,7 +60,7 @@ window.addEventListener('beforeunload', () => {
 
 btnSend.addEventListener('click', () => {
   const message = input.value
-  writeToScreen('SENT: ' + message)
+  writeToScreen(message)
   websocket.send(message)
 })
 
