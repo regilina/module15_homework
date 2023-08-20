@@ -1,6 +1,7 @@
 .chat-container {
   width: fit-content;
 }
+
 .btn {
   background-color: powderblue;
   border: none;
@@ -25,6 +26,8 @@
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
+  width: fit-content;
+  margin-left: auto;
 }
 
 .response-message {
@@ -33,4 +36,12 @@
   padding: 5px;
   margin: 5px;
   border-radius: 5px;
+  width: fit-content;
+  margin-right: auto;
 }
+
+#output {
+  display: flex;
+  flex-direction: column;
+}
+
