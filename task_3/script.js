@@ -26,7 +26,7 @@ function openWebsocket () {
   }
   websocket.onmessage = function (evt) {
     writeToScreen(
-      '<span style="color: blue;">' + evt.data + '</span>', true)
+      '<span style="color: blue;">' + evt.data + '</span>')
   }
   websocket.onerror = function (evt) {
     writeToScreen(
@@ -45,7 +45,7 @@ function getLocation () {
     navigator.geolocation.getCurrentPosition(position => {
       const { latitude, longitude } = position.coords
       const locationURL = `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=16/${latitude}/${longitude}`
-      writeToScreen(`<a href="${locationURL}" target="_blank">Моя геолокация</a>`)
+      writeToScreen(`<a href="${locationURL}" target="_blank">Моя геолокация</a>`, true)
     })
   } else {
     alert('Геолокация недоступна.')
@@ -60,7 +60,7 @@ window.addEventListener('beforeunload', () => {
 
 btnSend.addEventListener('click', () => {
   const message = input.value
-  writeToScreen(message)
+  writeToScreen(message, true)
   websocket.send(message)
 })
 
